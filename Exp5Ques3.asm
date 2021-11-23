@@ -1,0 +1,26 @@
+DATA SEGMENT
+    NUM1 DW 43H
+    NUM2 DW 55H
+    GR DW ?
+DATA ENDS
+
+CODE SEGMENT
+    ASSUME CS:CODE,DS:DATA
+    
+    START:
+    MOV AX,DATA
+    MOV DS,AX
+    MOV AX,NUM1
+    MOV BX,NUM2
+    
+    CMP AX,BX
+    JNC SWAP
+    MOV GR,BX 
+    HLT
+    
+SWAP:MOV GR,AX   
+    HLT
+
+CODE ENDS
+END START
+    
